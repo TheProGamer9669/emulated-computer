@@ -48,16 +48,19 @@ opcodes = {
 	# if it is it will jump if not it will continue with the program without jumping
 	# Examples:
 	# jmp _start \ jumps to start no matter what the last result was
-	# jmp _start 5 \ jumps to start if the last result was a 5
-	# jmp _start >5 \ jumps to start if the last result was greater than 5
-	# jmp _start <5 \ jumps to start if the last result was less than 5
+	# jmp _start, 5 \ jumps to start if the last result was a 5
+	# jmp _start, >5 \ jumps to start if the last result was greater than 5
+	# jmp _start, <5 \ jumps to start if the last result was less than 5
+	# jmp _start, =>5 \ jumps to start if the last result was greater or equal to 5
+	# jmp _start, =<5 \ jumps to start if the last result was equal or less than 5
 }
 registers = {
 	"0001":"a", # 16 bit or 2 byte \ register a
 	"0010":"b", # 16 bit or 2 byte \ register b
 	"0011":"pc", # 32 bit \ the program counter
 	"0100":"s1", # 32 bit or 4 byte \ keeps track of the top of the stack
-	"0101":"s2" # 32 bit or 4 byte \ keeps track of the bottom of the stack
+	"0101":"s2", # 32 bit or 4 byte \ keeps track of the bottom of the stack
+	"0110":"rt" # 32 bit or 4 byte \ keeps track of the last result
 }
 
 def parser(tobeparsed):
